@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
+
+.homeContainer {
+  margin: 0 auto;
+}
+.contentContainer {
+  min-height: calc(100vh - 10vh);
+  margin-bottom: -20px;
+}
+.footer {
+  height: 200px;
+  background: white;
+  text-align: center;
+}
+.iconsBlock,
+.infoBlock {
+  width: 100%;
+  margin: 0 auto;
+}
+.block {
+  padding: 15px;
+}
+.iconsBlock {
+  /* border-top: 10px solid #1d1a4b; */
+  border-bottom: 40px solid #1d1a4b;
+  background: rgb(246, 246, 246);
+  margin-top: 90vh;
+  text-align: center;
+}
+.technology {
+  display: inline-block;
+  padding: 15px;
+}
+.image {
+  height: 50px;
+  width: auto;
+}
+
+.infoBlock {
+  background: #f8f8ff;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  min-height: 350px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.start {
+  width: 100%;
+  background: #1d1a4b;
+  color: white;
+  padding: 50px;
+}
+.start .open {
+  text-align: center;
+}
+
+.one,
+.two,
+.three,
+.four,
+.five,
+.six,
+.seven {
+  border-bottom: 25px solid #1d1a4b;
+}
+.one > .theImage {
+  background-image: url('https://miro.medium.com/max/2600/1*FVtCyRdJ6KOr4YswTtwMeA.jpeg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.theImage {
+  min-height: 300px;
+}
+.info {
+  display: grid;
+}
+.text {
+  align-self: center;
+  justify-self: center;
+  font-size: 1.5rem;
+  padding: 5%;
+}
+
+.two,
+.four,
+.six {
+  background: rgb(49, 204, 255);
+}
+.two > .theImage {
+  background-image: url('https://miro.medium.com/max/1400/1*44aJtUU8arzFDn_7QjzMyw.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.three > .theImage {
+  background-image: url('https://image.flaticon.com/icons/svg/891/891399.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.four > .theImage {
+  background-image: url('https://pngimage.net/wp-content/uploads/2018/05/deployment-png-7.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.five > .theImage {
+  background-image: url('https://marsner.com/wp-content/uploads/test-driven-development-TDD.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.six > .theImage {
+  background-image: url('https://techcrunch.com/wp-content/uploads/2018/01/circleci_ui.png?w=1390&crop=1');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.seven > .theImage {
+  background-image: url('https://docs.cypress.io/img/guides/code-coverage/single-test.cae0cca2.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
