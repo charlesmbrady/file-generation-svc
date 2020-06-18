@@ -1,11 +1,9 @@
-# MERNolithic_sql
+# File Generation SVC
 
 **Overview**
 
-MySQL-Express-React-Node application boilerplate with custom webpack config, docker, CI/CD config, Test-Driven Development, and JWT authentication stored as cookie
-
-- Staging environment: https://mernolithic-staging.herokuapp.com/
-- Production environment: https://mernolithic.herokuapp.com/
+- Staging environment: https://file-generations-svc-staging.herokuapp.com/
+- Production environment: https://file-generations-svc.herokuapp.com/
 
 ## Getting started
 
