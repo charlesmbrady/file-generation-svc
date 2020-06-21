@@ -10,6 +10,6 @@ const withAuth = require('../../middleware.js');
 // router.put('/data/:id', withAuth, dataController.updateById);
 // router.delete('/data/:id', withAuth, dataController.deleteById);
 
-router.get('/data', dataController.getAllByUserId);
+router.get('/data', dataController.getData);
 
 module.exports = router;

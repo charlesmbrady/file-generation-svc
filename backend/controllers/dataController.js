@@ -7,12 +7,9 @@ require('dotenv').config();
 module.exports = {
   getData: function (req, res) {
     axios
-      .get('https://data-generation-svc-staging/api/datapoc')
-      .then((data) => {
-        res.json(data);
-      })
-      .catch((err) => {
-        throw err;
+      .get('http://data-generation-svc-staging.herokuapp.com/api/datapoc')
+      .then((dgsData) => {
+        res.send(dgsData);
       });
   },
   // create: function (req, res) {
