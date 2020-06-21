@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const primaryItemsRoutes = require('./primaryItems');
+const dataRoutes = require('./data');
 
-router.use(primaryItemsRoutes);
+router.use(dataRoutes);
 
 module.exports = router;

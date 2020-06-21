@@ -9,9 +9,7 @@ This is a microservice for the Mockdat system. This particular service will be u
 
 ## Getting started
 
-7. Run `initialize.sh` command from the project root to automatically create staging and production Heroku remotes with MySql databases provisioned and deployed.
-
-8. To setup the CI/CD pipeline, first go to your dashboard on circleci.com. Click "Add Project" and choose the repo for your project. Then select "Build Now" to start building the project. Update the "working_directory" variable at the top of ~/.circleci/config.yml to match your repo name as well
+//TODO: add steps to install necessary dependencies and add environment variables etc.
 
 ## Deploying to Heroku
 
