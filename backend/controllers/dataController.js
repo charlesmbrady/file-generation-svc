@@ -1,77 +1,20 @@
 const db = require('../models');
-const jwt = require('jsonwebtoken');
 const axios = require('axios');
-require('dotenv').config();
 
 // Defining methods for the primary items controller
 module.exports = {
-  getData: function (req, res) {
-    axios
+  getData: async function (req, res) {
+    return axios
       .get('http://data-generation-svc-staging.herokuapp.com/api/datapoc')
       .then((dgsData) => {
-        res.send(dgsData);
+        if (dgsData) {
+          console.log('its there');
+          console.log(dgsData.data);
+        }
+        res.json(dgsData.data);
+      })
+      .catch((err) => {
+        res.json('error' + err);
       });
   },
-  // create: function (req, res) {
-  //   const primary = req.body;
-
-  //   db.Primary.create(primary)
-  //     .then((result) => {
-  //       res.json(result);
-  //     })
-  //     .catch((err) => {
-  //       res.json(err);
-  //       console.log('ERROR: ' + err);
-  //     });
-  // },
-  // getById: function (req, res) {
-  //   db.Primary.findAll({
-  //     where: {
-  //       UserId: req.body.UserId,
-  //     },
-  //   }).then((dbPrimaries, err) => {
-  //     if (err) {
-  //       res.status(500).send(err);
-  //     }
-  //     dbPrimaries.filter((primary) => primary.id == req.params.id);
-  //     res.json(dbPrimaries[0]);
-  //   });
-  // },
-  // getAllByUserId: function (req, res) {
-  //   db.Primary.findAll({
-  //     where: {
-  //       UserId: req.body.UserId,
-  //     },
-  //   }).then((dbPrimaries, err) => {
-  //     if (err) {
-  //       res.status(500).send(err);
-  //     }
-  //     res.json(dbPrimaries);
-  //   });
-  // },
-  // updateById: function (req, res) {
-  //   db.Primary.findAll({
-  //     where: {
-  //       UserId: req.body.UserId,
-  //     },
-  //   }).then((dbPrimaries, err) => {
-  //     if (err) {
-  //       res.status(500).send(err);
-  //     }
-  //     dbPrimaries.filter((primary) => primary.id == req.params.id);
-  //     if (dbPrimaries[0]) {
-  //       db.Primary.update(req.body, {
-  //         where: {
-  //           id: req.params.id,
-  //         },
-  //       })
-  //         .then((newDbPrimary) => {
-  //           if (newDbPrimary) {
-  //             res.json(newDbPrimary);
-  //           }
-  //         })
-  //         .catch((err) => res.json(err));
-  //     }
-  //   });
-  // },
 };
