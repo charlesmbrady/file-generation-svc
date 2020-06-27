@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const dataRoutes = require('./data');
+const scenarioRoutes = require('./scenario');
 
-router.use(dataRoutes);
+router.use(scenarioRoutes);
 
 module.exports = router;
