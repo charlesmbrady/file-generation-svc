@@ -1,5 +1,5 @@
 import './style.css';
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { ScenarioContext } from '../../Contexts/ScenarioContext';
 import API from '../../Utilities/API';
@@ -8,10 +8,12 @@ import Title from '../../Components/Title/index';
 import Info from '../../Components/Info/index';
 import StepControls from '../../Components/StepControls/index';
 import _ from 'lodash';
+import { CSVDownload } from 'react-csv';
 
 export default function Generate() {
   const { scenario, setScenario } = useContext(ScenarioContext);
   const [redirect, setRedirect] = useState(false);
+  const [data, setData] = useState([]);
 
   if (redirect) {
     return <Redirect to={`/${redirect}`} />;
@@ -24,7 +26,7 @@ export default function Generate() {
   const handleUpdate = (e) => {
     const newRecordCount = e.target.value;
     let tempScenario = _.cloneDeep(scenario);
-    tempScenario.recordCount = newRecordCount;
+    tempScenario.recordCount = parseInt(newRecordCount);
 
     setScenario(tempScenario);
   };
@@ -33,11 +35,15 @@ export default function Generate() {
     //TODO: finish hooking this up with csv generation (it is only getting data now);
     API.newScenario(scenario).then((res) => {
       console.log('got response, check out the data ' + res.data);
+      setData(res.data);
     });
   };
 
+  useEffect(() => {}, [data]);
+
   return (
     <div>
+      {data.length > 0 && <CSVDownload data={data} target='_blank' />}
       <Title>Generate File</Title>
       <Info>How many records would you like to generate?</Info>
       <input

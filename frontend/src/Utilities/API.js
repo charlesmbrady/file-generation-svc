@@ -6,11 +6,4 @@ export default {
       throw err;
     });
   },
-  getDatatypes: function () {
-    return axios
-      .get('https://data-generation-svc-staging.herokuapp.com/api/datatypes')
-      .catch((err) => {
-        throw err;
-      });
-  },
 };

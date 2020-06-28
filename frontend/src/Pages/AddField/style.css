@@ -1,0 +1,8 @@
+.addFieldPage > .well {
+  height: 70%;
+  margin-top: 15px;
+  background: #ffffff17;
+  padding: 15px;
+  max-width: 600px;
+  min-width: 360px;
+}

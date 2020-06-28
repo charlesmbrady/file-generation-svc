@@ -9,31 +9,45 @@ import Title from '../../Components/Title/index';
 import Info from '../../Components/Info/index';
 import StepControls from '../../Components/StepControls/index';
 import _ from 'lodash';
+import SmallDatatypeCard from './components/smallDataypeCard/index';
 
 export default function AddField() {
-  // const [isLoading, data, error] = useApi(API.getDatatypes);
   const { field, setField } = useContext(FieldContext);
   const { scenario, setScenario } = useContext(ScenarioContext);
   const [redirect, setRedirect] = useState(false);
+  const datatypes = [
+    'AccountName',
+    'AccountType',
+    'AnnualRevenue',
+    'BillingCity',
+    'BillingCountry',
+    'BillingPostalCode',
+    'BillingState',
+    'BillingStreet',
+    'CloseDate',
+    'Email',
+    'FirstName',
+    'ForecastCategory',
+    'Industry',
+    'LastName',
+    'LeadSource',
+    'LeadStatus',
+    'NumberOfEmployees',
+    'OpportunityStage',
+    'OpportunityType',
+    'Phone',
+    'Probability',
+    'Title',
+  ];
 
   if (redirect) {
     return <Redirect to={`/${redirect}`} />;
   }
 
-  useEffect(() => {
-    API.getDatatypes()
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
   const back = () => {
     setField({
       name: '',
-      datatype: '',
+      dataType: '',
     });
     setRedirect('fields');
   };
@@ -50,7 +64,7 @@ export default function AddField() {
     //clear the field context and redirect
     setField({
       name: '',
-      datatype: '',
+      dataType: '',
     });
     setRedirect('fields');
   };
@@ -60,7 +74,7 @@ export default function AddField() {
   };
 
   return (
-    <div>
+    <div className='addFieldPage'>
       <Title>Add a Field</Title>
       <Info>Name this field and select a dataype.</Info>
       <label htmlFor='fieldName'>Name</label>
@@ -71,7 +85,11 @@ export default function AddField() {
         onChange={(e) => handleNameUpdate(e)}
       />
 
-      {/* <div>{data && data.map((datatype) => <div>{datatype}</div>)}</div> */}
+      <div className='well'>
+        {datatypes.map((datatype, i) => (
+          <SmallDatatypeCard key={i} datatype={datatype} />
+        ))}
+      </div>
 
       <StepControls>
         <button className='surpressedBackground' onClick={() => back()}>

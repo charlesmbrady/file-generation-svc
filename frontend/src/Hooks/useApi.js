@@ -10,8 +10,8 @@ export default function useApi(apiFunction, params) {
 
   useEffect(() => {
     apiFunction(params)
-      .then((res) => {
-        setData(res);
+      .then(({ data }) => {
+        setData(data);
         setIsLoading(false);
       })
       .catch((err) => {

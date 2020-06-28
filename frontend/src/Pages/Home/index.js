@@ -8,6 +8,7 @@ import useApi from '../../Hooks/useApi';
 import Title from '../../Components/Title/index';
 import Info from '../../Components/Info/index';
 import StepControls from '../../Components/StepControls/index';
+import FieldPill from './components/FieldPill/index';
 
 export default function Home() {
   const { scenario } = useContext(ScenarioContext);
@@ -38,9 +39,10 @@ export default function Home() {
       </Info>
       <h3 className='lightType'>Fields:</h3>
 
-      {scenario.fields.map((field) => {
-        <p className='lightType'>{field}</p>;
-      })}
+      {scenario.fields.length > 0 &&
+        scenario.fields.map((field, i) => (
+          <FieldPill name={field.name} index={i} key={i} />
+        ))}
       {scenario.fields.length == 0 && (
         <h5 className='surpressed'>
           No fields added yet... Click the "Add Field" button below.

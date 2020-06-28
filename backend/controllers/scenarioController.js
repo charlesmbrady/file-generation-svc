@@ -16,11 +16,10 @@ module.exports = {
       .then((dgsData) => {
         const records = dgsData.data;
 
-        res.set('Content-disposition', 'attachment; filename=testing.csv');
-        res.set('Content-Type', 'text/csv');
-        res.status(200).send('hey,there,whatcha,doin');
+        res.json(records);
       })
       .catch((err) => {
+        console.log(err);
         res.json('error' + err);
       });
   },
