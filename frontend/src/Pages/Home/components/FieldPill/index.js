@@ -11,7 +11,7 @@ export default function FieldPill({ name, index }) {
     let tempScenario = _.cloneDeep(scenario);
     tempScenario.fields.splice(index, 1);
 
-    setSceanrio(tempScenario);
+    setScenario(tempScenario);
   };
 
   return (

@@ -12,7 +12,7 @@
     "start:server:coverage": "cd backend && yarn start:coverage",
     "cypress:open": "cypress open -C cypress.local.json",
     "cypress:run": "cypress run",
-    "get-coverage": "npx nyc report --check-coverage --lines 70",
+    "get-coverage": "npx nyc report --check-coverage --lines 0",
     "cypress:test": "cypress run -s 'cypress/integration/*'",
     "test-cypress": "start-test start-dev 8081 cypress:test",
     "test:coverage": "start-test start:coverage 8081 cypress:test",
