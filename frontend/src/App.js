@@ -2,90 +2,48 @@ import React, { useState, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './style.css';
-import PrivateRoute from './PrivateRoute';
-import { UserContext } from './Contexts/UserContext';
-import { GlobalContext } from './Contexts/GlobalContext';
-import { FormValuesContext } from './Contexts/FormValuesContext';
-import { FormErrorsContext } from './Contexts/FormErrorsContext';
+import { ScenarioContext } from './Contexts/ScenarioContext';
+import { FieldContext } from './Contexts/FieldContext';
 import API from './Utilities/API';
 import useApi from './Hooks/useApi';
 
-//********** Pages/Components **********//
-import Mask from './GenericComponents/Mask';
-import Header from './Components/Header';
-import Dashboard from './Pages/Dashboard';
-import Login from './Pages/Login';
-import Register from './Pages/Register';
+//********** Pages **********//
 import Home from './Pages/Home';
+import AddField from './Pages/AddField';
+import Generate from './Pages/Generate';
 
 export default function App() {
-  const [isLoading, data, error] = useApi(API.checkToken);
-
-  // Set UserContext provider values
-  const [user, setUser] = useState({
-    isAuthenticated: false,
-    isCreated: false,
-    firstName: null,
-    lastName: null,
-    email: null,
+  // Set ScenarioContext provider values
+  const [scenario, setScenario] = useState({
+    fields: [],
+    recordCount: 0,
   });
-  const userValue = useMemo(() => ({ user, setUser }), [user, setUser]);
-
-  // Set GlobalContext provider values
-  const [global, setGlobal] = useState({
-    isSubmitting: false,
-    isLoading: false,
-    leftDrawerOpen: false,
-    rightDrawerOpen: false,
-  });
-  const globalValue = useMemo(() => ({ global, setGlobal }), [
-    global,
-    setGlobal,
+  const scenarioValue = useMemo(() => ({ scenario, setScenario }), [
+    scenario,
+    setScenario,
   ]);
 
-  // Set FormValuesContext provider values
-  const [formValues, setFormValues] = useState({
-    // All field names go here
-    firstName: null,
-    lastName: null,
-    email: null,
-    password: null,
-    passwordConfirmation: null,
-    agreement: null,
+  // Set FieldContext provider values
+  const [field, setField] = useState({
+    name: '',
+    datatype: '',
   });
-  const formValuesValue = useMemo(() => ({ formValues, setFormValues }), [
-    formValues,
-    setFormValues,
-  ]);
-
-  // Set FormErrorsContext provider values
-  const [formErrors, setFormErrors] = useState({});
-  const formErrorsValue = useMemo(() => ({ formErrors, setFormErrors }), [
-    formErrors,
-    setFormErrors,
-  ]);
+  const fieldValue = useMemo(() => ({ field, setField }), [field, setField]);
 
   return (
-    <UserContext.Provider value={userValue}>
-      <GlobalContext.Provider value={globalValue}>
-        <FormValuesContext.Provider value={formValuesValue}>
-          <FormErrorsContext.Provider value={formErrorsValue}>
-            <Router>
-              <div className='main-container'>
-                {isLoading && <Mask />}
-                <Header />
-                <Switch>
-                  <Route exact path='/login' component={Login} />
-                  <Route exact path='/register' component={Register} />
-                  <PrivateRoute exact path='/dashboard' component={Dashboard} />
-
-                  <Route path='/' component={Home} />
-                </Switch>
-              </div>
-            </Router>
-          </FormErrorsContext.Provider>
-        </FormValuesContext.Provider>
-      </GlobalContext.Provider>
-    </UserContext.Provider>
+    <ScenarioContext.Provider value={scenarioValue}>
+      <FieldContext.Provider value={fieldValue}>
+        <Router>
+          <div className='main'>
+            <Switch>
+              <Route exact path='/fields' component={Home} />
+              <Route exact path='/newField' component={AddField} />
+              <Route exact path='/generate' component={Generate} />
+              <Route path='/' component={Home} />
+            </Switch>
+          </div>
+        </Router>
+      </FieldContext.Provider>
+    </ScenarioContext.Provider>
   );
 }

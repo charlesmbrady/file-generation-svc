@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
-import { FormValuesContext } from '../Contexts/FormValuesContext';
-import { UserContext } from '../Contexts/UserContext';
-import { FormErrorsContext } from '../Contexts/FormErrorsContext';
-import { GlobalContext } from '../Contexts/GlobalContext';
+import { FieldContext } from '../Contexts/FieldContext';
+import { ScenarioContext } from '../Contexts/ScenarioContext';
 import API from '../Utilities/API';
 
 export default function useApi(apiFunction, params) {
@@ -12,8 +10,8 @@ export default function useApi(apiFunction, params) {
 
   useEffect(() => {
     apiFunction(params)
-      .then(({ data }) => {
-        setData(data);
+      .then((res) => {
+        setData(res);
         setIsLoading(false);
       })
       .catch((err) => {

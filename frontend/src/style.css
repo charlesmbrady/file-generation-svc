@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
 
 :root {
-  --main-color: #eafff9;
-  --second: #00aeef;
-  --third: #13e6af;
-  --fourth: #19090b;
-  --fifth: #780c56;
-  --sixth: #d5ece6;
-  --success: #00b989;
+  --positive: #2ba000;
+  --lightBackground: #f0f0f0;
+  --darkHeader: #5b1680;
+  --primary: #00004b;
+  --lightType: #eeffce;
+  --secondary: #5a5aff;
+  --suppressed: #707070;
+  --soft: #ffffff;
+  --gradientOne: #000000;
+  --gradientTwo: #4a006f;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -16,7 +20,7 @@
 body,
 html,
 #root,
-.main-container {
+.main {
   height: 100%;
   width: 100%;
   margin: 0 auto;
@@ -24,9 +28,78 @@ html,
 }
 
 body {
-  background-image: url(Images/logo.svg);
+  background-image: linear-gradient(
+    to bottom right,
+    var(--gradientOne),
+    var(--gradientTwo)
+  );
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+.main > div {
+  height: 95%;
+  position: relative;
+}
+
+.main {
+  width: 75%;
+  min-width: 500px;
+}
+
+/********************** Colors **************************/
+.positive {
+  background: var(--positive);
+}
+.lightBackground {
+  background: var(--lightBackground);
+}
+.darkHeader {
+  color: var(--darkHeader);
+}
+.primary {
+  color: var(--primary);
+}
+.lightType {
+  color: var(--lightType);
+}
+.secondary {
+  background: var(--secondary);
+}
+.surpressed {
+  color: var(--suppressed);
+}
+.surpressedBackground {
+  background: var(--suppressed);
+}
+.soft {
+  color: var(--soft);
+}
+
+/* Other */
+.pill {
+  border-radius: 20px;
+}
+
+.well {
+  overflow-y: scroll;
+}
+
+/* Overrides */
+button {
+  border: none;
+  border-radius: 20px;
+  color: var(--soft);
+  width: 290px;
+  height: 40px;
+}
+button:hover {
+  cursor: pointer;
+}
+
+label {
+  color: var(--lightType);
+  padding: 10px;
 }

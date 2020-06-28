@@ -1,0 +1,15 @@
+.stepControls {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+}
+
+.stepControls > * {
+  display: inline-block;
+}
+
+.stepControls > :nth-child(1) {
+  margin-right: 50px;
+}
