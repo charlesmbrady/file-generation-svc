@@ -95,9 +95,16 @@ export default function AddField() {
         <button className='surpressedBackground' onClick={() => back()}>
           Back
         </button>
-        <button className='positive' onClick={() => nextStep()}>
-          Next Step
-        </button>
+
+        {field.datatype && field.name ? (
+          <button className='positive' onClick={() => nextStep()}>
+            Next Step
+          </button>
+        ) : (
+          <button className='inactive' disabled>
+            Next Step
+          </button>
+        )}
       </StepControls>
     </div>
   );

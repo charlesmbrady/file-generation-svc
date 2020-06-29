@@ -52,9 +52,16 @@ export default function Home() {
         <button className='secondary' onClick={() => addField()}>
           Add Field
         </button>
-        <button className='positive' onClick={() => nextStep()}>
-          Next Step
-        </button>
+
+        {scenario.fields.length > 0 ? (
+          <button className='positive' onClick={() => nextStep()}>
+            Next Step
+          </button>
+        ) : (
+          <button className='inactive' disabled>
+            Next Step
+          </button>
+        )}
       </StepControls>
     </div>
   );
