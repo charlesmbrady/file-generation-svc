@@ -103,3 +103,10 @@ label {
   color: var(--lightType);
   padding: 10px;
 }
+
+.inactive {
+  opacity: 0.7;
+}
+.inactive:hover {
+  cursor: not-allowed;
+}

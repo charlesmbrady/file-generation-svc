@@ -57,9 +57,16 @@ export default function Generate() {
         <button className='surpressedBackground' onClick={() => back()}>
           Back
         </button>
-        <button className='positive' onClick={() => generate()}>
-          Generate
-        </button>
+
+        {scenario.recordCount > 0 ? (
+          <button className='positive' onClick={() => generate()}>
+            Generate
+          </button>
+        ) : (
+          <button className='inactive' disabled>
+            Generate
+          </button>
+        )}
       </StepControls>
     </div>
   );
