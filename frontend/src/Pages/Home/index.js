@@ -3,8 +3,6 @@ import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { ScenarioContext } from '../../Contexts/ScenarioContext';
 import { FieldContext } from '../../Contexts/FieldContext';
-import API from '../../Utilities/API';
-import useApi from '../../Hooks/useApi';
 import Title from '../../Components/Title/index';
 import Info from '../../Components/Info/index';
 import StepControls from '../../Components/StepControls/index';

@@ -9,10 +9,7 @@ module.exports = {
     const scenario = req.body;
 
     return axios
-      .post(
-        'http://data-generation-svc-staging.herokuapp.com/api/scenario',
-        scenario
-      )
+      .post('http://data-generation-svc.herokuapp.com/api/scenario', scenario)
       .then((dgsData) => {
         const records = dgsData.data;
 
